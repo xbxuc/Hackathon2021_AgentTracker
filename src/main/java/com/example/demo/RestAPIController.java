@@ -14,11 +14,6 @@ import static com.example.demo.helpers.generateSampleOutput.getSampleOutputForUs
 @RestController
 public class RestAPIController {
 
-  @GetMapping("/")
-  public String index() {
-    return "Greetings from Spring Boot!";
-  }
-
   @GetMapping("/checkAgentByEmail")
   public TreeMap<String, ArrayList<String>> checkAgentByEmail(@RequestParam(value = "email") String email) {
     TreeMap<String, ArrayList<String>> output = new TreeMap<>();
