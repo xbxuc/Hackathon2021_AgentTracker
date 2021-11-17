@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.TreeMap;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +17,8 @@ public class RestAPIController {
   public TreeMap<String, ArrayList<String>> checkAgentByEmail(@RequestParam(value = "email") String email) {
     TreeMap<String, ArrayList<String>> output = new TreeMap<>();
     // Sample Ouput for Front-End development
-    if (email.equals("testEmail")){
-      output = getSampleOutputForUser();
-    }
+    output = getSampleOutputForUser(email);
+
     return output;
   }
 
