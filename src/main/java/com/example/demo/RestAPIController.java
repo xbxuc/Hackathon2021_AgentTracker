@@ -3,6 +3,7 @@ package com.example.demo;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import static com.example.demo.helpers.generateSampleOutput.getSampleOutputForFeature;
 import static com.example.demo.helpers.generateSampleOutput.getSampleOutputForUser;
 
+@CrossOrigin("*")
 @RestController
 public class RestAPIController {
 
@@ -36,5 +38,4 @@ public class RestAPIController {
   public String sayHello(@RequestParam(value = "myName", defaultValue = "World") String name) {
     return String.format("Hello %s! This is the main page for the Agent Tracker Tool.", name);
   }
-
 }
