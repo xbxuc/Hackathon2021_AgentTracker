@@ -27,5 +27,11 @@ public class MainTest {
     String featureId = "18879920455";
     System.out.println(DataRetriever.getAudiencesByFeatureID(featureId));
   }
+
+  @Test
+  void getUserGroupsTest() throws IOException {
+    String audienceId = "19335421540";
+    System.out.println(DataRetriever.getUserGroupsByAudienceID(audienceId));
+  }
 }
 

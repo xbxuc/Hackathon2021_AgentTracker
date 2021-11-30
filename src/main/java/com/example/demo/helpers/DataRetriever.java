@@ -45,6 +45,18 @@ public class DataRetriever {
     JsonArray rules = jsonResponse.get("environments").getAsJsonObject().get("production")
         .getAsJsonObject().get("rollout_rules").getAsJsonArray();
     String output = rules.get(0).getAsJsonObject().get("audience_conditions").getAsString();
+    // TODO: parse audienceIDs in the conditions string
     return output;
+  }
+
+  public static String getUserGroupsByAudienceID(String audienceId) throws IOException {
+    String urlString = "https://api.optimizely.com/v2/audiences/" + audienceId;
+    RestRequestHelper restHelper = new RestRequestHelper(urlString);
+    restHelper.setRequestMethod("GET");
+    restHelper.setRequestProperty("Authorization", "Bearer " + optimizelyToken);
+    JsonObject jsonResponse = restHelper.fetchJsonResponse();
+    String conditions = jsonResponse.get("conditions").getAsString();
+    // TODO: parse userGroupNames in the conditions string
+    return conditions;
   }
 }
